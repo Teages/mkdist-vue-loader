@@ -1,0 +1,14 @@
+{
+  "name": "playground",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "play": "jiti ."
+  },
+  "dependencies": {
+    "@teages/mkdist-vue-loader": "workspace:*"
+  },
+  "devDependencies": {
+    "jiti": "2.0.0-beta.3"
+  }
+}
