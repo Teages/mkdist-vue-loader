@@ -1,16 +1,17 @@
-<template>
-  <div>{{ test }}</div>
-</template>
-
 <script lang="ts">
-import test from "..";
+import test from '..'
 
-const str: "test" = "test";
+// eslint-disable-next-line ts/prefer-as-const
+const str: 'test' = 'test'
 
 export default {
   data: () => ({
     test: test(),
     str,
   }),
-};
+}
 </script>
+
+<template>
+  <div>{{ test }}</div>
+</template>
