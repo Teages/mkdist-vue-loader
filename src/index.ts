@@ -5,8 +5,6 @@ import type { SFCBlock, SFCScriptBlock, SFCStyleBlock, SFCTemplateBlock } from '
 import { compileScript, parse } from 'vue/compiler-sfc'
 
 import type { InputFile, Loader, LoaderContext, LoaderResult } from './mkdist'
-import type { MaybePromise } from './utils'
-import { trimBreakLine } from './utils'
 
 export interface DefineVueLoaderOptions {
   transfer?: {
@@ -227,3 +225,9 @@ function createFs(input: InputFile) {
 
   return { realpath, fileExists, readFile }
 }
+
+function trimBreakLine(str: string): string {
+  return str.replace(/\n$/, '').replace(/^\n/, '')
+}
+
+ type MaybePromise<T> = T | Promise<T>
