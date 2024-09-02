@@ -34,8 +34,17 @@
   },
   "peerDependencies": {
     "mkdist": "^1.5.4",
+    "typescript": ">=5.5.4",
     "vue": "^3.4.38",
     "vue-tsc": "^2.0.29"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    },
+    "vue-tsc": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.27.2",

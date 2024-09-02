@@ -112,6 +112,7 @@ describe('@teages/mkdist-vue-loader', () => {
         'dist/components/js.vue',
         'dist/components/js.vue.d.ts',
         'dist/components/script-setup-ts.vue',
+        'dist/components/script-setup-ts.vue.d.ts',
         'dist/components/ts.vue',
         'dist/components/ts.vue.d.ts',
         'dist/components/jsx.mjs',

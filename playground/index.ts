@@ -1,5 +1,15 @@
 /* eslint-disable no-console */
+import { mkdist } from 'mkdist'
+import { vueLoader } from '@teages/mkdist-vue-loader'
 
-import { test } from '../src'
+const { writtenFiles } = await mkdist({
+  srcDir: './fixture',
+  distDir: 'dist',
+  loaders: ['js', 'postcss', 'sass', vueLoader],
+  declaration: true,
+  cleanDist: true,
+})
 
-console.log(test())
+for (const path of writtenFiles) {
+  console.log(path)
+}

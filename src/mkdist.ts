@@ -5,3 +5,4 @@ export type Loader = Exclude<NonNullable<MkdistOptions['loaders']>[number], stri
 export type LoaderResult = Awaited<ReturnType<Loader>>
 
 export type InputFile = Parameters<Loader>[0]
+export type LoaderContext = Parameters<Loader>[1]
