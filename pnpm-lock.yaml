@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      pathe:
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.0.0
@@ -32,9 +36,6 @@ importers:
       modern-normalize:
         specifier: ^3.0.0
         version: 3.0.0
-      pathe:
-        specifier: ^1.1.2
-        version: 1.1.2
       sass:
         specifier: ^1.77.8
         version: 1.77.8
