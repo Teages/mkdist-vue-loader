@@ -9,7 +9,7 @@ import {
 } from 'vitest'
 import { vueLoader } from '../src'
 
-describe('@teages/mkdist-vue-loader', () => {
+describe('mkdist', () => {
   let mkdist: typeof import('mkdist').mkdist
 
   beforeAll(async () => {
@@ -17,7 +17,7 @@ describe('@teages/mkdist-vue-loader', () => {
   })
 
   it('mkdist', async () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     const { writtenFiles } = await mkdist({ rootDir, loaders: ['js', 'postcss', 'sass', vueLoader] })
     expect(writtenFiles.sort()).toEqual(
       [
@@ -47,7 +47,7 @@ describe('@teages/mkdist-vue-loader', () => {
   })
 
   it('mkdist (custom glob pattern)', async () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     const { writtenFiles } = await mkdist({
       rootDir,
       pattern: 'components/**',
@@ -68,7 +68,7 @@ describe('@teages/mkdist-vue-loader', () => {
   })
 
   it('mkdist (multiple glob patterns)', async () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     const { writtenFiles } = await mkdist({
       rootDir,
       pattern: ['components/**', '!components/js.vue'],
@@ -88,7 +88,7 @@ describe('@teages/mkdist-vue-loader', () => {
   })
 
   it('mkdist (emit types)', async () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     const { writtenFiles } = await mkdist({
       rootDir,
       declaration: true,
@@ -159,7 +159,7 @@ describe('@teages/mkdist-vue-loader', () => {
   }, 50_000)
 
   describe('mkdist (sass compilation)', () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     let writtenFiles: string[]
     beforeEach(async () => {
       const results = await mkdist({ rootDir })
@@ -189,7 +189,7 @@ describe('@teages/mkdist-vue-loader', () => {
   })
 
   it('mkdist (only jsLoader and vueLoader)', async () => {
-    const rootDir = resolve(__dirname, 'fixture')
+    const rootDir = resolve(__dirname, 'fixtures/mkdist')
     const { writtenFiles } = await mkdist({
       rootDir,
       loaders: ['js', vueLoader],
