@@ -1,0 +1,483 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`vue-loader > vue-loader 1`] = `
+"<script>
+import { useModel as _useModel, mergeModels as _mergeModels } from "vue";
+import { computed, ref } from "vue";
+export default /* @__PURE__ */ Object.assign({ name: "JsScriptSetup" }, {
+  props: /* @__PURE__ */ _mergeModels({
+    title: {
+      type: String,
+      required: true
+    },
+    message: {
+      type: String,
+      default: "Hello, Vue!"
+    }
+  }, {
+    "modelValue": { type: String, required: true },
+    "modelModifiers": {}
+  }),
+  emits: ["update:modelValue"],
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const value = _useModel(__props, "modelValue");
+    const count = ref(0);
+    function increment() {
+      count.value++;
+    }
+    const localValue = computed({
+      get: () => value.value,
+      set: (val) => value.value = val
+    });
+    const __returned__ = { value, count, increment, localValue, computed, ref };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+</script>
+
+<template>
+  <div>
+    <h1 :class="$style.title">
+      {{ title }}
+    </h1>
+    <p>{{ message }}</p>
+    <button @click="increment">
+      Increment
+    </button>
+    <p>Count: {{ count }}</p>
+
+    <slot name="custom-content" />
+
+    <input v-model="localValue">
+    <p>Local Value: {{ localValue }}</p>
+  </div>
+</template>
+
+<style module>
+.title{color:blue}
+</style>
+"
+`;
+
+exports[`vue-loader > vue-loader 2`] = `
+"declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_Slots>;
+export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & (new () => {
+    $slots: S;
+});
+declare const __VLS_component: import("vue").DefineComponent<{}, {
+    title: string;
+    message: string;
+    $props: {
+        readonly title?: string | undefined;
+        readonly message?: string | undefined;
+    };
+}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
+type __VLS_Slots = {
+    "custom-content"?(_: {}): any;
+};
+"
+`;
+
+exports[`vue-loader > vue-loader 3`] = `
+"<script>
+import { computed, defineComponent, ref } from "vue";
+function useCounter() {
+  const count = ref(0);
+  const increment = () => {
+    count.value++;
+  };
+  return { count, increment };
+}
+export default defineComponent({
+  name: "TsScript",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    message: {
+      type: String,
+      default: "Hello, Vue!"
+    },
+    modelValue: {
+      type: String,
+      default: ""
+    }
+  },
+  emits: ["update:modelValue"],
+  setup(props, { emit }) {
+    const { count, increment } = useCounter();
+    const localValue = computed({
+      get: () => props.modelValue,
+      set: (value) => emit("update:modelValue", value)
+    });
+    return {
+      count,
+      increment,
+      localValue
+    };
+  }
+});
+</script>
+
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+    <button @click="increment">
+      Increment
+    </button>
+    <p>Count: {{ count }}</p>
+
+    <slot name="custom-content" />
+
+    <input v-model="localValue">
+    <p>Local Value: {{ localValue }}</p>
+  </div>
+</template>
+
+<style scoped>
+h1{color:blue}
+</style>
+"
+`;
+
+exports[`vue-loader > vue-loader 4`] = `
+"declare const _default: import("vue").DefineComponent<{
+    title: {
+        type: StringConstructor;
+        required: true;
+    };
+    message: {
+        type: StringConstructor;
+        default: string;
+    };
+    modelValue: {
+        type: StringConstructor;
+        default: string;
+    };
+}, {
+    count: import("vue").Ref<number>;
+    increment: () => void;
+    localValue: import("vue").WritableComputedRef<string>;
+}, any, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+    title: {
+        type: StringConstructor;
+        required: true;
+    };
+    message: {
+        type: StringConstructor;
+        default: string;
+    };
+    modelValue: {
+        type: StringConstructor;
+        default: string;
+    };
+}>> & {
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+}, {
+    message: string;
+    modelValue: string;
+}, {}>;
+export default _default;
+"
+`;
+
+exports[`vue-loader > vue-loader 5`] = `
+"<script>
+import { useModel as _useModel, mergeModels as _mergeModels, defineComponent as _defineComponent } from "vue";
+import { computed, defineComponent, ref } from "vue";
+const __default__ = defineComponent({ name: "TsScriptSetup" });
+export default /* @__PURE__ */ _defineComponent({
+  ...__default__,
+  props: /* @__PURE__ */ _mergeModels({
+    title: { type: String, required: true },
+    message: { type: String, required: false }
+  }, {
+    "modelValue": { type: String, ...{ required: true } },
+    "modelModifiers": {}
+  }),
+  emits: ["update:modelValue"],
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const value = _useModel(__props, "modelValue");
+    const count = ref(0);
+    function increment() {
+      count.value++;
+    }
+    const localValue = computed({
+      get: () => value.value,
+      set: (val) => value.value = val
+    });
+    const __returned__ = { value, count, increment, localValue };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+</script>
+
+<template>
+  <div>
+    <h1 :class="$style.title">
+      {{ title }}
+    </h1>
+    <p>{{ message }}</p>
+    <button @click="increment">
+      Increment
+    </button>
+    <p>Count: {{ count }}</p>
+
+    <slot name="custom-content" />
+
+    <input v-model="localValue">
+    <p>Local Value: {{ localValue }}</p>
+  </div>
+</template>
+
+<style module>
+.title{color:blue}
+</style>
+"
+`;
+
+exports[`vue-loader > vue-loader 6`] = `
+"declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__VLS_TypePropsToOption<{
+    modelValue: string;
+} & {
+    title: string;
+    message?: string;
+}>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (modelValue: string) => void;
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToOption<{
+    modelValue: string;
+} & {
+    title: string;
+    message?: string;
+}>>> & {
+    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+}, {}, {}>, {
+    "custom-content"?(_: {}): any;
+}>;
+export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToOption<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+"
+`;
+
+exports[`vue-loader > vue-loader 7`] = `
+"<script>
+import { useModel as _useModel, mergeModels as _mergeModels, defineComponent as _defineComponent } from "vue";
+import { computed, ref } from "vue";
+export default /* @__PURE__ */ _defineComponent({
+  ...{ name: "TsScriptSetup" },
+  props: /* @__PURE__ */ _mergeModels({
+    title: { type: String, required: true },
+    message: { type: String, required: false }
+  }, {
+    "modelValue": { type: String, ...{ required: true } },
+    "modelModifiers": {}
+  }),
+  emits: ["update:modelValue"],
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const value = _useModel(__props, "modelValue");
+    const count = ref(0);
+    function increment() {
+      count.value++;
+    }
+    const localValue = computed({
+      get: () => value.value,
+      set: (val) => value.value = val
+    });
+    const __returned__ = { value, count, increment, localValue };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+</script>
+
+<template>
+  <div>
+    <h1 :class="$style.title">
+      {{ title }}
+    </h1>
+    <p>{{ message }}</p>
+    <button @click="increment">
+      Increment
+    </button>
+    <p>Count: {{ count }}</p>
+
+    <slot name="custom-content" />
+
+    <input v-model="localValue">
+    <p>Local Value: {{ localValue }}</p>
+  </div>
+</template>
+
+<style module>
+.title{color:blue}
+</style>
+"
+`;
+
+exports[`vue-loader > vue-loader 8`] = `
+"declare let __VLS_typeProps: {
+    title: string;
+    message?: string;
+};
+type __VLS_PublicProps = {
+    modelValue: string;
+} & typeof __VLS_typeProps;
+declare var __VLS_0: {};
+declare var __VLS_inheritedAttrs: {};
+declare const __VLS_templateResult: {
+    slots: {
+        "custom-content"?(_: typeof __VLS_0): any;
+    };
+    refs: {};
+    attrs: Partial<typeof __VLS_inheritedAttrs>;
+};
+type __VLS_Slots = typeof __VLS_templateResult['slots'];
+declare const __VLS_component: import("vue").DefineComponent<__VLS_TypePropsToOption<__VLS_PublicProps>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (modelValue: string) => void;
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<__VLS_TypePropsToOption<__VLS_PublicProps>>> & {
+    "onUpdate:modelValue"?: ((modelValue: string) => any) | undefined;
+}, {}, {}>;
+declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_Slots>;
+export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToOption<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
+"
+`;
+
+exports[`vue-loader > vue-loader 9`] = `
+"<script>
+import { computed, defineComponent, ref } from "vue";
+function useCounter() {
+  const count = ref(0);
+  const increment = () => {
+    count.value++;
+  };
+  return { count, increment };
+}
+export default defineComponent({
+  name: "TsScript",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    message: {
+      type: String,
+      default: "Hello, Vue!"
+    },
+    modelValue: {
+      type: String,
+      default: ""
+    }
+  },
+  emits: ["update:modelValue"],
+  setup(props, { emit }) {
+    const { count, increment } = useCounter();
+    const localValue = computed({
+      get: () => props.modelValue,
+      set: (value) => emit("update:modelValue", value)
+    });
+    return {
+      count,
+      increment,
+      localValue
+    };
+  }
+});
+</script>
+
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+    <button @click="increment">
+      Increment
+    </button>
+    <p>Count: {{ count }}</p>
+
+    <slot name="custom-content" />
+
+    <input v-model="localValue">
+    <p>Local Value: {{ localValue }}</p>
+  </div>
+</template>
+
+<style scoped>
+h1{color:blue}
+</style>
+"
+`;
+
+exports[`vue-loader > vue-loader 10`] = `
+"declare const _default: import("vue").DefineComponent<{
+    title: {
+        type: StringConstructor;
+        required: true;
+    };
+    message: {
+        type: StringConstructor;
+        default: string;
+    };
+    modelValue: {
+        type: StringConstructor;
+        default: string;
+    };
+}, {
+    count: import("vue").Ref<number>;
+    increment: () => void;
+    localValue: import("vue").WritableComputedRef<string>;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+    title: {
+        type: StringConstructor;
+        required: true;
+    };
+    message: {
+        type: StringConstructor;
+        default: string;
+    };
+    modelValue: {
+        type: StringConstructor;
+        default: string;
+    };
+}>> & {
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+}, {
+    message: string;
+    modelValue: string;
+}, {}>;
+export default _default;
+"
+`;

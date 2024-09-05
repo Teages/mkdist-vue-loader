@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import { resolve as _resolve, dirname } from 'pathe'
+import { dirname, resolve } from 'pathe'
 
 import type { SFCBlock, SFCScriptBlock, SFCStyleBlock, SFCTemplateBlock } from 'vue/compiler-sfc'
 import { compileScript, parse } from 'vue/compiler-sfc'
@@ -23,7 +23,7 @@ export interface VueBlockTransfer<T extends SFCBlock = SFCBlock> {
       blocks: SFCBlock[]
       addOutput: (path: string, contents: string) => void
     }
-  ): MaybePromise<Pick<T, 'type' | 'content' | 'attrs'>>
+  ): Awaitable<Pick<T, 'type' | 'content' | 'attrs'>>
 }
 
 export const defaultBlockLoader: VueBlockTransfer = async ({ type, content, attrs }, context) => {
@@ -121,7 +121,8 @@ export function defineVueLoader(options?: DefineVueLoaderOptions): Loader {
 
           // compile the script block amd script setup block into one script block
           attrs.setup = undefined as any
-          content = compileScript(sfc.descriptor, { id: input.path, fs: createFs(input) }).content
+          const scriptResult = compileScript(sfc.descriptor, { id: input.path, fs: createFs(input) })
+          content = scriptResult.content
 
           // tell mkdist to generate dts
           if (context.options.declaration) {
@@ -205,8 +206,8 @@ export const vueLoader = defineVueLoader({
 
 function createFs(input: InputFile) {
   const realpath = (...paths: string[]) => input.srcPath
-    ? _resolve(dirname(input.srcPath), ...paths)
-    : _resolve(...paths)
+    ? resolve(dirname(input.srcPath), ...paths)
+    : resolve(...paths)
   const fileExists = (file: string) => {
     try {
       if (!input.srcPath) {
@@ -230,4 +231,4 @@ function trimBreakLine(str: string): string {
   return str.replace(/\n$/, '').replace(/^\n/, '')
 }
 
- type MaybePromise<T> = T | Promise<T>
+type Awaitable<T> = T | Promise<T>
