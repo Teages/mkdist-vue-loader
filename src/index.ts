@@ -213,8 +213,10 @@ function createFs(input: InputFile) {
       if (!input.srcPath) {
         return false
       }
-      fs.accessSync(realpath(file))
-      return true
+      const path = realpath(file)
+
+      fs.accessSync(path)
+      return fs.lstatSync(path).isFile()
     }
     catch {
       return false
