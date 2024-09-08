@@ -50,20 +50,20 @@
     "pathe": "^1.1.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.0.0",
+    "@antfu/eslint-config": "^3.4.1",
     "@types/node": "^20",
     "@vitest/coverage-v8": "^2.0.5",
     "changelogen": "^0.5.5",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "jiti": "2.0.0-beta.3",
-    "mkdist": "^1.5.5",
-    "modern-normalize": "^3.0.0",
-    "sass": "^1.77.8",
+    "mkdist": "^1.5.6",
+    "modern-normalize": "^3.0.1",
+    "sass": "^1.78.0",
     "typescript": "^5.5.4",
     "unbuild": "^v3.0.0-rc.7",
     "vitest": "^2.0.5",
-    "vue": "^3.4.38",
-    "vue-tsc": "^2.1.2"
+    "vue": "^3.5.3",
+    "vue-tsc": "^2.1.6"
   },
   "publishConfig": {
     "access": "public"
