@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { mkdist } from 'mkdist'
 import { vueLoader } from '@teages/mkdist-vue-loader'
+import { mkdist } from 'mkdist'
 
 const { writtenFiles } = await mkdist({
   srcDir: './fixture',
