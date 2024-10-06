@@ -2,39 +2,50 @@
 
 exports[`vue-loader > vue-loader 1`] = `
 "<script>
-import { useModel as _useModel, mergeModels as _mergeModels } from "vue";
-import { computed, ref } from "vue";
-export default /* @__PURE__ */ Object.assign({ name: "JsScriptSetup" }, {
-  props: /* @__PURE__ */ _mergeModels({
-    title: {
-      type: String,
-      required: true
-    },
-    message: {
-      type: String,
-      default: "Hello, Vue!"
-    }
-  }, {
+import { useModel as _useModel, mergeModels as _mergeModels } from 'vue'
+import { computed, ref } from 'vue'
+
+
+export default /*@__PURE__*/Object.assign({ name: 'JsScriptSetup' }, {
+  props: /*@__PURE__*/_mergeModels({
+  title: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    default: 'Hello, Vue!',
+  },
+}, {
     "modelValue": { type: String, required: true },
-    "modelModifiers": {}
+    "modelModifiers": {},
   }),
   emits: ["update:modelValue"],
   setup(__props, { expose: __expose }) {
-    __expose();
-    const value = _useModel(__props, "modelValue");
-    const count = ref(0);
-    function increment() {
-      count.value++;
-    }
-    const localValue = computed({
-      get: () => value.value,
-      set: (val) => value.value = val
-    });
-    const __returned__ = { value, count, increment, localValue, computed, ref };
-    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-    return __returned__;
-  }
-});
+  __expose();
+
+
+
+
+
+const value = _useModel(__props, "modelValue")
+
+const count = ref(0)
+function increment() {
+  count.value++
+}
+
+const localValue = computed({
+  get: () => value.value,
+  set: val => value.value = val,
+})
+
+const __returned__ = { value, count, increment, localValue, computed, ref }
+Object.defineProperty(__returned__, '__isScriptSetup', { enumerable: false, value: true })
+return __returned__
+}
+
+})
 </script>
 
 <template>
@@ -88,44 +99,51 @@ declare var __VLS_inheritedAttrs: {};
 
 exports[`vue-loader > vue-loader 3`] = `
 "<script>
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from 'vue'
+
 function useCounter() {
-  const count = ref(0);
+  const count = ref(0)
   const increment = () => {
-    count.value++;
-  };
-  return { count, increment };
+    count.value++
+  }
+  return { count, increment }
 }
+
 export default defineComponent({
-  name: "TsScript",
+  name: 'TsScript',
+
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     message: {
       type: String,
-      default: "Hello, Vue!"
+      default: 'Hello, Vue!',
     },
     modelValue: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
-  emits: ["update:modelValue"],
+
+  emits: ['update:modelValue'],
+
   setup(props, { emit }) {
-    const { count, increment } = useCounter();
+    const { count, increment } = useCounter()
+
     const localValue = computed({
       get: () => props.modelValue,
-      set: (value) => emit("update:modelValue", value)
-    });
+      set: value => emit('update:modelValue', value),
+    })
+
     return {
       count,
       increment,
-      localValue
-    };
-  }
-});
+      localValue,
+    }
+  },
+})
 </script>
 
 <template>

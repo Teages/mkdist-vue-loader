@@ -59,7 +59,7 @@
     "mkdist": "^1.6.0",
     "modern-normalize": "^3.0.1",
     "sass": "^1.79.4",
-    "typescript": "^5.5.4",
+    "typescript": "~5.5.4",
     "unbuild": "^v3.0.0-rc.7",
     "vitest": "^2.1.2",
     "vue": "^3.5.11",
