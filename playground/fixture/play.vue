@@ -1,9 +1,16 @@
-<script setup lang="ts">
+<script lang="ts">
 import { computed } from 'vue'
 import type { Data } from './type'
 
+export interface PropsData {
+  name: string
+  data: Data
+}
+</script>
+
+<script setup lang="ts">
 defineOptions({ name: 'Play' })
-const props = defineProps<{ name: string, data: Data }>()
+const props = defineProps<PropsData>()
 
 const msg = computed<string>(() => `Hello ${props.name}!`)
 </script>
