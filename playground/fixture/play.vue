@@ -1,6 +1,6 @@
 <script lang="ts">
-import { computed } from 'vue'
 import type { Data } from './type'
+import { computed } from 'vue'
 
 export interface PropsData {
   name: string

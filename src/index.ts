@@ -1,10 +1,10 @@
+import type { SFCBlock, SFCScriptBlock, SFCStyleBlock, SFCTemplateBlock } from 'vue/compiler-sfc'
+import type { InputFile, Loader, LoaderContext, LoaderResult } from './mkdist'
+
 import fs from 'node:fs'
 import { dirname, resolve } from 'pathe'
 
 import { compileScript, parse } from 'vue/compiler-sfc'
-import type { SFCBlock, SFCScriptBlock, SFCStyleBlock, SFCTemplateBlock } from 'vue/compiler-sfc'
-
-import type { InputFile, Loader, LoaderContext, LoaderResult } from './mkdist'
 
 export interface DefineVueLoaderOptions {
   transfer?: {
